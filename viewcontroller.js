@@ -1,5 +1,4 @@
-const app = document.getElementById('libcontainer')
-
+const bookShelf = document.getElementById('bookshelf')
 const formToggleButton = document.getElementById('formtogglebutton')
 const addForm = document.getElementById('addform')
 const saveButton = document.getElementById('savebutton')
@@ -27,11 +26,22 @@ saveButton.addEventListener('click', () => {
 	const read = bookReadInput.checked
 
 	// Save Values
-	console.log(`Title: ${title}, Author ${author}, Pages ${pages}, Read ${read}`)
-
+	// console.log(`Title: ${title}, Author ${author}, Pages ${pages}, Read ${read}`)
+	addBookToLibrary(title, author, pages, read)
+	populateBookshelf()
 	// Clear Values
 	bookTitleInput.value = ''
 	bookAuthorInput.value = ''
 	bookPagesInput.value = ''
 	bookReadInput.checked = false
 })
+
+// Populate Bookshelf
+
+const populateBookshelf = () => {
+	myLibrary.forEach((book) => {
+		bookShelf.appendChild(book.infoHtml())
+	})
+}
+
+populateBookshelf()

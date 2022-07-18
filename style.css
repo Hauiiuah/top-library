@@ -71,7 +71,7 @@
 
 .container-head button {
 	background-color: var(--button-background-color);
-    max-height: 40px;
+	max-height: 40px;
 	padding: 10px 30px;
 	border-radius: 5px;
 	color: white;
@@ -121,6 +121,7 @@
 .book-read {
 	width: 24px;
 	margin-right: 15px;
+	border: 1px solid red;
 }
 
 .bookshelf {
