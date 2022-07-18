@@ -1,77 +1,182 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box147;
-    --background-color: rgba(0, 0, 0,.8);
-    --button-background-color: #3BA659;
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box147;
+	--background-color: rgba(0, 0, 0, 0.8);
+	--button-background-color: #3ba659;
 }
 
-.library{
-    width: 100vw;
-    height: 100vh;
-    background: no-repeat center url('/assets/library-bg.jpg');
-    display: flex;
-    overflow: clip auto;
-    justify-content: space-between;
-    flex-direction: column;
-    
+.library {
+	width: 100vw;
+	height: 100vh;
+	background: no-repeat center url('/assets/library-bg.jpg');
+	background-size: cover;
+	display: flex;
+	overflow: clip auto;
+	justify-content: space-between;
+	flex-direction: column;
 }
 
-.header{
-    margin-top: 33px;
-    padding-block: 16px;
-    background-color: var(--background-color);
-    width: 80vw;
-    height: 90px;
-    display: flex;
-    align-items: center;
-
-
+.header {
+	margin-top: 33px;
+	padding-block: 16px;
+	background-color: var(--background-color);
+	width: 80vw;
+	height: 90px;
+	display: flex;
+	align-items: center;
+	min-width: 680px;
 }
 
-.header img{
-    margin-left: 45px;
-    width: 86px;
+.header img {
+	margin-left: 45px;
+	width: 86px;
 }
 
-.header p{
-    color: white;
-    font-size:2.5rem;
-    font-weight: 900;
+.header p {
+	color: white;
+	font-size: 2.5rem;
+	font-weight: 900;
 }
 
 #libcontainer {
-    margin:69px 122px;
-    background-color: rgba(255,255,255,0.8);
-    height: 100%;
-    
+	margin: 69px 122px;
+	background-color: rgba(255, 255, 255, 0.8);
+	height: 100%;
+	min-width: 450px;
 }
 
-.credits{
-    background-color:black;
-    color: white;
-    text-align: right;
+.credits {
+	background-color: black;
+	color: white;
+	text-align: right;
 }
 
-.credits a{
-    color: white;
+.credits a {
+	color: white;
 }
-.container-head{
-    display: flex;
-}
-.container-head p{
-    font-size: 2rem;
-}
-
-.container-head button{
-    background-color: var(--button-background-color);
-    padding: 10px 30px;
-    border-radius: 15px;
-    color: white;
-    font-size: 20px;
-    border: none;
+.container-head {
+	display: flex;
+	margin-top: 33px;
+	margin-left: 49px;
+	gap: 46px;
 }
 
-.container-head button:hover{
-    background-color: #2e8045;
+.bookshelf {
+	margin-left: 49px;
+}
+.container-head p {
+	font-size: 2rem;
+}
+
+.container-head button {
+	background-color: var(--button-background-color);
+    max-height: 40px;
+	padding: 10px 30px;
+	border-radius: 5px;
+	color: white;
+	font-size: 20px;
+	border: none;
+}
+
+.container-head button:hover {
+	background-color: #2e8045;
+}
+
+.book {
+	font-family: 'Roboto';
+	background-color: #d9d9d9;
+	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 25%);
+	width: 156px;
+	height: 175px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.book-top {
+	margin-top: 7px;
+	margin-left: 17px;
+}
+
+.book-title {
+	font-weight: 900;
+	font-size: 1.3rem;
+}
+
+.book-author {
+	font-weight: 500;
+	color: #8d8282;
+}
+.book-bottom {
+	margin-left: 17px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 28px;
+}
+.book-pages {
+	font-weight: 300;
+	font-size: 0.8rem;
+}
+.book-read {
+	width: 24px;
+	margin-right: 15px;
+}
+
+.bookshelf {
+	margin-top: 46px;
+	display: flex;
+	gap: 30px;
+	flex-wrap: wrap;
+	overflow: hidden auto;
+	max-height: 60vh;
+}
+
+.inputfields {
+	opacity: 0;
+	display: flex;
+	gap: 30px;
+	background-color: #23502f;
+	color: white;
+	padding: 10px 30px;
+	border-radius: 5px;
+	align-items: center;
+	min-width: 900px;
+	transition: 1s;
+}
+
+.visible {
+	opacity: 1;
+	transition: 1s;
+}
+
+.control-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.control-group.check {
+	flex-direction: row;
+	align-items: center;
+	gap: 30px;
+}
+
+.control-group p {
+	font-size: 1rem;
+}
+
+.control-group input {
+	padding: 10px 15px;
+	font-size: 1rem;
+	border-radius: 5px;
+}
+
+.control-group input[type='number'] {
+	width: 60px;
+	padding-right: 5px;
+}
+
+.control-group input[type='checkbox'] {
+	width: 30px;
+	height: 30px;
 }
