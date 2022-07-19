@@ -26,11 +26,10 @@ saveButton.addEventListener('click', () => {
 	const read = bookReadInput.checked
 
 	if (!title || !author) {
-		console.log('Missing INput')
+		!title ? bookTitleInput.focus() : bookAuthorInput.focus()
 		return
 	}
 	// Save Values
-	// console.log(`Title: ${title}, Author ${author}, Pages ${pages}, Read ${read}`)
 	addBookToLibrary(title, author, pages, read)
 	populateBookshelf()
 	// Clear Values
@@ -51,6 +50,9 @@ const populateBookshelf = () => {
 const addSampleData = () => {
 	addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 236, false)
 	addBookToLibrary('Alice in Wonderland', 'Lewis Caroll', 431, true)
+	addBookToLibrary('Harry Potter 1', 'J.K. Rowling', 354, false)
+	addBookToLibrary('Harry Potter 2', 'J.K. Rowling', 624, true)
+	addBookToLibrary('Harry Potter 3', 'J.K. Rowling', 517, false)
 }
 
 addSampleData()
