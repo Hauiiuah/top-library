@@ -22,9 +22,13 @@ saveButton.addEventListener('click', () => {
 
 	const title = bookTitleInput.value
 	const author = bookAuthorInput.value
-	const pages = bookPagesInput.value
+	const pages = bookPagesInput.value || 0
 	const read = bookReadInput.checked
 
+	if (!title || !author) {
+		console.log('Missing INput')
+		return
+	}
 	// Save Values
 	// console.log(`Title: ${title}, Author ${author}, Pages ${pages}, Read ${read}`)
 	addBookToLibrary(title, author, pages, read)
@@ -39,9 +43,15 @@ saveButton.addEventListener('click', () => {
 // Populate Bookshelf
 
 const populateBookshelf = () => {
+	bookShelf.innerHTML = ''
 	myLibrary.forEach((book) => {
 		bookShelf.appendChild(book.infoHtml())
 	})
 }
+const addSampleData = () => {
+	addBookToLibrary('The Hobbit', 'J.R.R. Tolkien', 236, false)
+	addBookToLibrary('Alice in Wonderland', 'Lewis Caroll', 431, true)
+}
 
+addSampleData()
 populateBookshelf()
