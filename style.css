@@ -122,7 +122,6 @@
 }
 .book-read {
 	width: 24px;
-	margin-right: 15px;
 }
 
 .book-read:hover {
@@ -178,7 +177,7 @@
 }
 
 .control-group input:focus {
-	outline: 2px solid red;
+	outline: 2px solid #8b0f0f;
 }
 
 .control-group input[type='number'] {
@@ -189,4 +188,10 @@
 .control-group input[type='checkbox'] {
 	width: 30px;
 	height: 30px;
+}
+
+.book-bottom-buttons {
+	display: flex;
+	margin-right: 15px;
+	justify-content: space-between;
 }

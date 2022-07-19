@@ -39,12 +39,22 @@ saveButton.addEventListener('click', () => {
 	bookReadInput.checked = false
 })
 
-// Populate Bookshelf
+const addBookToLibrary = (title, author, pages, read) => {
+	myLibrary.push(new Book(title, author, pages, read))
+	console.log(myLibrary)
+}
+
+const removeBookFromLibrary = (book) => {
+	myLibrary.splice(book.index, 1)
+	console.log(`Removed at Index ${book.index}`)
+	populateBookshelf()
+}
 
 const populateBookshelf = () => {
 	bookShelf.innerHTML = ''
-	myLibrary.forEach((book) => {
-		bookShelf.appendChild(book.infoHtml())
+	myLibrary.forEach((book, index) => {
+		book.setDeleteCallBack(removeBookFromLibrary)
+		bookShelf.appendChild(book.infoHtml(index))
 	})
 }
 const addSampleData = () => {
