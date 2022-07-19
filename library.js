@@ -1,30 +1,12 @@
 let myLibrary = []
 
 function Book(name, author, pages, read) {
+	console.log('Constructer call')
 	this.name = name
 	this.author = author
 	this.pages = pages
 	this.read = read
-}
 
-Book.prototype.info = function () {
-	return `${this.name} by ${this.author}, ${this.pages} pages, ${
-		this.read ? 'already read' : 'not read yet'
-	}`
-}
-
-Book.prototype.toggleRead = function () {
-	console.log('THIS', this)
-	this.read = !this.read
-	console.log('Bookread', this.bookRead)
-	this.bookRead.src = this.read
-		? './assets/checkbox-marked-outline-green.svg'
-		: './assets/checkbox-marked-outline.svg'
-	console.log(`read is now ${this.read}`)
-}
-Book.prototype.infoHtml = function () {
-	console.log('WHEEEHOO got Called')
-	console.log(this.info())
 	this.bookContainer = elementWithClass('div', 'book')
 	this.topBookContainer = elementWithClass('div', 'book-top')
 	this.bookTitle = elementWithClassAndContent('p', 'book-title', this.name)
@@ -35,7 +17,7 @@ Book.prototype.infoHtml = function () {
 		'book-pages',
 		`${this.pages} pages`
 	)
-	this.bookRead = blackOrGreen(this.read, () => this.toggleRead())
+	this.bookRead = imageElementWithHandler(this.read, () => this.toggleRead())
 
 	this.bottomBookContainer.appendChild(this.bookPages)
 	this.bottomBookContainer.appendChild(this.bookRead)
@@ -45,7 +27,19 @@ Book.prototype.infoHtml = function () {
 
 	this.bookContainer.appendChild(this.topBookContainer)
 	this.bookContainer.appendChild(this.bottomBookContainer)
+}
 
+Book.prototype.info = function () {
+	return `${this.name} by ${this.author}, ${this.pages} pages, ${
+		this.read ? 'already read' : 'not read yet'
+	}`
+}
+
+Book.prototype.toggleRead = function () {
+	this.read = !this.read
+	this.bookRead.src = blackOrGreenFile(this.read)
+}
+Book.prototype.infoHtml = function () {
 	return this.bookContainer
 }
 
@@ -66,15 +60,17 @@ const elementWithClassAndContent = (el, cls, content) => {
 	return element
 }
 
-const blackOrGreen = (val, toggle) => {
+const imageElementWithHandler = (val, handler) => {
 	const img = elementWithClass('img', 'book-read')
 
-	img.src = val
-		? './assets/checkbox-marked-outline-green.svg'
-		: './assets/checkbox-marked-outline.svg'
+	img.src = blackOrGreenFile(val)
 
-	img.addEventListener('click', toggle)
-	console.log(img)
+	img.addEventListener('click', handler)
 
 	return img
 }
+
+const blackOrGreenFile = (val) =>
+	val
+		? './assets/checkbox-marked-outline-green.svg'
+		: './assets/checkbox-marked-outline.svg'
