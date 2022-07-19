@@ -45,6 +45,9 @@ const addBookToLibrary = (title, author, pages, read) => {
 }
 
 const removeBookFromLibrary = (book) => {
+	if (!confirm(`Delete ${book.name} from library?`)) {
+		return
+	}
 	myLibrary.splice(book.index, 1)
 	console.log(`Removed at Index ${book.index}`)
 	populateBookshelf()
