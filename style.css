@@ -9,7 +9,7 @@
 .library {
 	width: 100vw;
 	height: 100vh;
-	background: no-repeat center url('/assets/library-bg.jpg');
+	background: no-repeat center url('./assets/library-bg.jpg');
 	background-size: cover;
 	display: flex;
 	overflow: clip auto;
